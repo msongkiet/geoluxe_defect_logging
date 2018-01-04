@@ -1,0 +1,68 @@
+﻿@*@model geoluxe_defect_logging.Models.QC_SlabList*@
+
+@model geoluxe_defect_logging.Models.QC_SlabDefectList
+
+@{
+    ViewBag.Title = "SlabDetail";
+    //ViewBag.Title = ViewBag.message;
+}
+
+    <div class="container">
+        <h5>DEFECT LOGGING APPLICATION</h5>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Partial("SlabIDPartialReadOnly")
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Partial("SlabDetailPartial")
+        </div>
+
+        <div class="col-md-6">
+            @Html.Partial("DefectDetailPartial")
+        </div>
+        <div class="form-group row">
+            <div class="col-md-8">
+
+            </div>
+
+            <div class="col-md-2">
+                <button type="reset" onclick="clear()" class="btn btn-default" style="align-content:center">ลบข้อมูล</button>
+            </div>
+            <div class="col-md-2">
+                <button onclick="processData()" class="btn btn-primary" style="align-content:center">เพิ่มข้อมูล</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <p>
+            @Html.Partial("DefectListPartial")
+        </p>
+    </div>
+
+<script type="text/javascript">
+
+    function processData() {
+        event.preventDefault();
+        alert("Test");
+        var slabForm = $("#SlabInfoForm").serialize();
+        var defectForm = $("#DefectDetailForm").serialize();
+        var submitForm = $("#SlabInfoForm,#DefectDetailForm").serialize();
+
+        alert(submitForm);
+
+        $.ajax({
+            type: "post",
+            url: '@Url.Action("DefectListPartial", "QC_DefectDataInput")',
+            data: submitForm,
+            success: function (response) {
+                alert("OK!");
+            }
+        });
+    };
+</script>

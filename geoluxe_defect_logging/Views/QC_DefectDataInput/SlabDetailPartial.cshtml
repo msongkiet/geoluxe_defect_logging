@@ -1,0 +1,86 @@
+﻿@*@model geoluxe_defect_logging.Models.QC_SlabList*@
+@model geoluxe_defect_logging.Models.QC_SlabDefectList
+
+
+    <form class="form-horizontal" id="SlabInfoForm">
+
+        <div class="container">
+            <div class="col-md-6">
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.OrderNo, null, new { @class = "control-label col-md-3" })
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.OrderNo, null, new { @class = "form-control", @type = "text", @placeholder = "Auto-generated using slab id", @disabled = "disabled" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.MatType, null, new { @class = "control-label col-md-3" })
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.MatType, null, new { @class = "form-control", @type = "text", @placeholder = "Auto-generated using slab id", @disabled = "disabled" })
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label class="col-md-3 control-label">Shades</label>
+                    <div class="col-md-3">
+                        <div class="dropdown">
+                            <span>
+                                <select id="Shade" name="Shade" class="form-control">
+                                    <option value="">เฉดสี</option>
+                                    <option value="J">J</option>
+                                    <option value="K">K</option>
+                                    <option value="L">L</option>
+                                    <option value="M">M</option>
+                                    <option value="N">N</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-md-3">ความกว้าง (mm)</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.Width_1, null, new { @class = "form-control", @type = "text", @placeholder = "กว้าง1", })
+                        @Html.TextBoxFor(m => m.Width_2, null, new { @class = "form-control", @type = "text", @placeholder = "กว้าง2" })
+                    </div>
+
+                    <label class="col-md-3 control-label">ความยาว (mm)</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.Length_1, null, new { @class = "form-control", @type = "text", @placeholder = "ยาว1" })
+                        @Html.TextBoxFor(m => m.Length_2, null, new { @class = "form-control", @type = "text", @placeholder = "ยาว2" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3 control-label">ความหนา (mm)</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.Thickness_1, null, new { @class = "form-control", @type = "text", @placeholder = "หนา1" })
+                        @Html.TextBoxFor(m => m.Thickness_2, null, new { @class = "form-control", @type = "text", @placeholder = "หนา2" })
+                    </div>
+
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.Thickness_3, null, new { @class = "form-control", @type = "text", @placeholder = "หนา3" })
+                        @Html.TextBoxFor(m => m.Thickness_4, null, new { @class = "form-control", @type = "text", @placeholder = "หนา4" })
+                    </div>
+
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.Thickness_5, null, new { @class = "form-control", @type = "text", @placeholder = "หนา5" })
+                        @Html.TextBoxFor(m => m.Thickness_6, null, new { @class = "form-control", @type = "text", @placeholder = "หนา6" })
+                    </div>
+
+                </div>
+
+                @*<div class="form-group row">
+                        <div class="col-md-3">
+
+                        </div>
+                       <div class="col-md-2">
+                            <button type="submit" id="submit" name="submit" value="submit" class="btn btn-primary" style="align-content:center">Submit</button>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </form>

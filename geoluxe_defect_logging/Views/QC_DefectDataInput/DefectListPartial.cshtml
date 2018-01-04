@@ -1,0 +1,58 @@
+﻿@model geoluxe_defect_logging.Models.QC_SlabDefectList
+
+<form class="form-horizontal" id="DefectInfoForm">
+    <div class="panel panel-default col-md-12">
+        <div class="panel-heading">Defect List</div>
+        <div class="panel-body" ;">
+
+            <div class="col-md-10">
+                <table class="table table-hover table-responsive">
+                    <thead style="font-size:smaller">
+                        <tr>
+                            <th>No.</th>
+                            <th>Slab ID</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Location</th>
+                            <th>Type</th>
+                            <th>Type details</th>
+                            <th>Cause</th>
+                            <th>Cause details</th>
+                            <th>Other details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel panel-default col-md-2">
+                @*<div class="panel-heading">สถานะของ Slab</div>*@
+                <div class="panel-body" ;">
+                    <div class="row">
+                        <div action="" class="">
+                            <label class="radio-inline">
+                                <input type="radio" id="Status" name="Status" value=1> PM In
+                            </label>
+                            <br>
+                            <label class="radio-inline">
+                                <input type="radio" id="Status" name="Status" value=2> PM Out
+                            </label>
+                            <br>
+                            <label class="radio-inline">
+                                <input type="radio" id="Status" name="Status" value=3> Reprocess
+                            </label>
+                        </div>
+                    </div>
+                    @*<div class="row">
+                            <button type="submit" id="submit" value="submit" class="btn btn-primary" style="align-content:center">บันทึกข้อมูล</button>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>

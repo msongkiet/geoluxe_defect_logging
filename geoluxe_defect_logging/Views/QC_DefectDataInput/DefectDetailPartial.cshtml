@@ -1,0 +1,98 @@
+﻿@model geoluxe_defect_logging.Models.QC_SlabDefectList
+
+<form class="form-horizontal" id="DefectDetailForm">
+    <div class="col-md-12">
+
+        <div class="form-group row">
+            @Html.LabelFor(m => m.Location_X, null, new { @class = "control-label col-md-3" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.Location_X, null, new { @class = "form-control", @type = "text" })
+            </div>
+
+            @Html.LabelFor(m => m.Location_Y, null, new { @class = "control-label col-md-3" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.Location_Y, null, new { @class = "form-control", @type = "text" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-md-3 control-label">ประเภท Defect</label>
+            <div class="col-md-9">
+                <div class="dropdown">
+                    <span>
+                        <select id="DefectType" onchange="SelectedDefectType(this);" name="DefectType" class="form-control">
+                            <option value=0>เลือกประเภท Defect</option>
+                            <option value=100>ขนาด</option>
+                            <option value=200>กะเทาะ</option>
+                            <option value=300>ร้าวหน้า</option>
+                            <option value=400>ร้าวข้าง</option>
+                            <option value=500>ร้าวขอบ</option>
+                        </select>
+                    </span>
+                </div>
+            </div>
+
+            @*<label class="col-md-2 control-label">สถานะ</label>
+                <div class="panel panel-default col-md-4">
+                    <label class="radio-inline"><input type="radio" id="Reprocess" name="Reprocess" value=1> Reprocess ได้</label>
+                    <br>
+                    <label class="radio-inline"><input type="radio" id="Reprocess" name="Reprocess" value=0> Reprocess ไม่ได้</label>
+                </div>*@
+
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">รายละเอียด</div>
+            <div id="DefectDetailRadioButton" name="DefectDetailRadioButton" class="panel-body" style="min-height:100px ;"></div>
+        </div>
+
+        @*<div class="form-group row">
+                <div class="col-md-8">
+
+                </div>
+
+                <div class="col-md-2">
+                    <button type="reset" onclick="clear()" class="btn btn-default" style="align-content:center">ลบข้อมูล</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" onclick="submit()" class="btn btn-primary" style="align-content:center">เพิ่มข้อมูล</button>
+                </div>
+            </div>*@
+    </div>
+</form>
+
+<script language="javascript" type="text/javascript">
+    function SelectedDefectType(DefectType) {
+        var selectedText = DefectType.options[DefectType.selectedIndex].innerHTML;
+        var selectedValue = DefectType.value;
+        var url = "/QC_DefectDataInput/Defect";
+        url = url + selectedValue;
+        $("#DefectDetailRadioButton").load(url);
+        $("#DefectDetailRadioButton").show();
+
+    }
+
+    //function submit() {
+    //    var Location_X = document.getElementsByName("Location_X")[0].value;
+    //    var Location_Y = document.getElementsByName("Location_Y")[0].value;
+    //    var SelectedDefectType = DefectType.value;
+    //    var SelectedDefectDetaiil = ($('input[name=DefectDetaiil]:checked').val());
+    //    alert(Location_X + " " + Location_Y + " " + SelectedDefectType + " " + SelectedDefectDetaiil);
+
+    //    ///Cleared Partial View
+    //    document.getElementsByName("Location_X")[0].value = "";
+    //    document.getElementsByName("Location_Y")[0].value = "";
+    //    $("#DefectType").val('0');
+    //    var selectedText = DefectType.options[DefectType.selectedIndex].innerHTML;
+    //    var selectedValue = DefectType.value;
+    //    var url = "/QC_DefectDataInput/Defect";
+    //    url = url + selectedValue;
+    //    $("#DefectDetailRadioButton").load(url);
+    //    $("#DefectDetailRadioButton").show();
+    //}
+
+    //function clear() {
+    //    alert("TEST");
+    //}
+
+</script>
