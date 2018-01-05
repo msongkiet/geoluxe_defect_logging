@@ -1,10 +1,9 @@
-﻿@model geoluxe_defect_logging.Models.QC_SlabDefectList
+﻿@model geoluxe_defect_logging.Models.DefectTableDTO
 
 <form class="form-horizontal" id="DefectInfoForm">
     <div class="panel panel-default col-md-12">
         <div class="panel-heading">Defect List</div>
         <div class="panel-body" ;">
-
             <div class="col-md-10">
                 <table class="table table-hover table-responsive">
                     <thead style="font-size:smaller">
@@ -13,23 +12,60 @@
                             <th>Slab ID</th>
                             <th>Date</th>
                             <th>Time</th>
-                            <th>Location</th>
+                            <th>Location X</th>
+                            <th>Location Y</th>
                             <th>Type</th>
-                            <th>Type details</th>
-                            <th>Cause</th>
-                            <th>Cause details</th>
+                            <th>Type details</th>   
                             <th>Other details</th>
                         </tr>
                     </thead>
+
                     <tbody>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
+                        @if (Model != null)
+                        {
+                            var i =1;
+                            foreach (var item in Model.QC_DefectListPreview)
+                            {
+
+                        <tr>
+                            <td>
+                                @i
+                                @{ 
+                                    i++;
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SlabID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GetDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GetTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Location_X)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Location_Y)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BasedID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CategoryID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Remark)
+                            </td>
+                        </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>
             <div class="panel panel-default col-md-2">
-                @*<div class="panel-heading">สถานะของ Slab</div>*@
+
                 <div class="panel-body" ;">
                     <div class="row">
                         <div action="" class="">
@@ -46,13 +82,8 @@
                             </label>
                         </div>
                     </div>
-                    @*<div class="row">
-                            <button type="submit" id="submit" value="submit" class="btn btn-primary" style="align-content:center">บันทึกข้อมูล</button>
-                        </div>*@
                 </div>
             </div>
         </div>
     </div>
-
-
 </form>

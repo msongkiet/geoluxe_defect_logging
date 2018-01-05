@@ -28,11 +28,12 @@ namespace geoluxe_defect_logging.Models
         public string MatType { get; set; }
 
         public string Shades { get; set; }
-        public float Length_1 { get; set; }
-        public float Length_2 { get; set; }
 
         public float Width_1 { get; set; }
         public float Width_2 { get; set; }
+
+        public float Length_1 { get; set; }
+        public float Length_2 { get; set; }
 
         public float Thickness_1 { get; set; }
         public float Thickness_2 { get; set; }
@@ -41,21 +42,21 @@ namespace geoluxe_defect_logging.Models
         public float Thickness_5 { get; set; }
         public float Thickness_6 { get; set; }
 
-        public DateTime Date_of_Entry { get; set; }
+        public int OperatorID { get; set; }
+        //public DateTime Date_of_Entry { get; set; }
 
-        public string SlabStatus { get; set; }
+        //public string SlabStatus { get; set; }
     }
 
     public class QC_SlabDefectList : QC_SlabList
     {
-        //[Key]
-        //[Display(Name = "Slab ID")]
-        //public UInt64 SlabID { get; set; }
         public bool Reprocess { get; set; }
-        public int OperatorID { get; set; }
         public int DefectID { get; set; }
         public int BasedID { get; set; }
         public int CategoryID { get; set; }
+
+        public string GetDate { get; set; }
+        public string GetTime { get; set; }
 
         [Display(Name = "Location X (mm)")]
         public float Location_X { get; set; }
@@ -63,10 +64,17 @@ namespace geoluxe_defect_logging.Models
         [Display(Name = "Location Y (mm)")]
         public float Location_Y { get; set; }
 
-        public List<QC_SlabDefectList> QC_DefectList { get; set; }
-        public QC_SlabDefectList()
+        public string Remark { get; set; }
+
+    }
+
+    public class DefectTableDTO : QC_SlabDefectList
+    {
+        public List<QC_SlabDefectList> QC_DefectListPreview { get; set; }
+
+        public DefectTableDTO()
         {
-            QC_DefectList = new List<QC_SlabDefectList>();           
+            this.QC_DefectListPreview = new List<QC_SlabDefectList>();
         }
     }
 

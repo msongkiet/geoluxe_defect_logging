@@ -7,62 +7,136 @@
     //ViewBag.Title = ViewBag.message;
 }
 
-    <div class="container">
-        <h5>DEFECT LOGGING APPLICATION</h5>
+<div class="container">
+    <h5>DEFECT LOGGING APPLICATION</h5>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-12">
+        @Html.Partial("SlabIDPartialReadOnly")
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-5">
+        @Html.Partial("SlabDetailPartial")
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            @Html.Partial("SlabIDPartialReadOnly")
-        </div>
+    <div class="col-md-7">
+        @Html.Partial("DefectDetailPartial")
     </div>
+</div>
 
-    <div class="row">
-        <div class="col-md-6">
-            @Html.Partial("SlabDetailPartial")
-        </div>
-
-        <div class="col-md-6">
-            @Html.Partial("DefectDetailPartial")
-        </div>
-        <div class="form-group row">
-            <div class="col-md-8">
-
-            </div>
-
-            <div class="col-md-2">
-                <button type="reset" onclick="clear()" class="btn btn-default" style="align-content:center">ลบข้อมูล</button>
-            </div>
-            <div class="col-md-2">
-                <button onclick="processData()" class="btn btn-primary" style="align-content:center">เพิ่มข้อมูล</button>
-            </div>
-        </div>
+<div class="form-group row">
+    <div class="col-md-8">
     </div>
-
-    <div class="row">
-        <p>
-            @Html.Partial("DefectListPartial")
-        </p>
+    <div class="col-md-2">
+        <button onclick="editData()" class="btn btn-default" style="align-content:center">แก้ไขข้อมูล</button>
     </div>
+    <div class="col-md-2">
+        <button onclick="processData()" class="btn btn-primary" style="align-content:center">เพิ่มข้อมูล</button>
+    </div>
+</div>
+
+
+<div class="row" id="DefectListPartial">
+    <p>
+        @Html.Partial("DefectListPartial")
+    </p>
+</div>
 
 <script type="text/javascript">
 
     function processData() {
         event.preventDefault();
-        alert("Test");
         var slabForm = $("#SlabInfoForm").serialize();
         var defectForm = $("#DefectDetailForm").serialize();
-        var submitForm = $("#SlabInfoForm,#DefectDetailForm").serialize();
+        var submitForm = $("#SlabIDForm,#SlabInfoForm,#DefectDetailForm").serialize();
 
-        alert(submitForm);
+        //alert(submitForm);
 
         $.ajax({
             type: "post",
             url: '@Url.Action("DefectListPartial", "QC_DefectDataInput")',
             data: submitForm,
             success: function (response) {
-                alert("OK!");
+                $("#DefectListPartial").html(response);
+
+                //Fill Defect Location
+                var Loc_X = $("#Location_X").val();
+                var Loc_Y = $("#Location_Y").val();
+                var Row;
+                var Col;
+
+                if (Loc_X % 200 == 0) {
+                    Col = Math.trunc(Loc_X / 200);
+                }
+                else
+                {
+                    Col = Math.trunc(Loc_X / 200) + 1;
+                }
+
+                if (Loc_Y % 200 == 0) {
+                    Row = Math.trunc(Loc_Y / 200);
+                }
+                else {
+                    Row = Math.trunc(Loc_Y / 200) + 1;
+                }
+                var Grid = "myCanvas" + Row + "," + Col;
+
+                var c = document.getElementById(Grid);
+                var ctx = c.getContext("2d");
+                ctx.fillStyle = "#FF0000";
+                ctx.fillRect(0, 0, 50, 50);
+
+                //Clear TextBox
+                $("#Location_X").val('');
+                $("#Location_Y").val('');
+                $("#Remark").val('');
+                $("#BasedID").val('0');
+                var selectedText = BasedID.options[BasedID.selectedIndex].innerHTML;
+                var selectedValue = BasedID.value;
+                var url = "/QC_DefectDataInput/Defect";
+                url = url + selectedValue;
+                $("#DefectDetailRadioButton").load(url);
+                $("#DefectDetailRadioButton").show();
+
+
+
+                //Read only Textbox
+                $("#Shades").attr('readonly', true);
+                $("#Width_1").attr('readonly', true);
+                $("#Width_2").attr('readonly', true);
+                $("#Length_1").attr('readonly', true);
+                $("#Length_2").attr('readonly', true);
+                $("#Thickness_1").attr('readonly', true);
+                $("#Thickness_2").attr('readonly', true);
+                $("#Thickness_3").attr('readonly', true);
+                $("#Thickness_4").attr('readonly', true);
+                $("#Thickness_5").attr('readonly', true);
+                $("#Thickness_6").attr('readonly', true);
+
             }
         });
     };
+
+    function editData() {
+        $.ajax({
+            success: function (response) {
+                //Textbox
+                $("#Shades").attr('readonly', false);
+                $("#Width_1").attr('readonly', false);
+                $("#Width_2").attr('readonly', false);
+                $("#Length_1").attr('readonly', false);
+                $("#Length_2").attr('readonly', false);
+                $("#Thickness_1").attr('readonly', false);
+                $("#Thickness_2").attr('readonly', false);
+                $("#Thickness_3").attr('readonly', false);
+                $("#Thickness_4").attr('readonly', false);
+                $("#Thickness_5").attr('readonly', false);
+                $("#Thickness_6").attr('readonly', false);
+            }
+        });
+    }
+
 </script>

@@ -299,13 +299,30 @@
     <Content Include="Views\QC_DefectDataInput\DefectListPartial.cshtml" />
     <Content Include="Views\QC_DefectDataInput\SlabDetail.cshtml" />
     <Content Include="Views\QC_DefectDataInput\SlabIDPartialReadOnly.cshtml" />
-    <Content Include="Views\QC_DefectDataInput\ListView.cshtml" />
     <Content Include="Views\QC_DefectDataInput\Defect100.cshtml" />
     <Content Include="Views\QC_DefectDataInput\Defect200.cshtml" />
     <Content Include="Views\QC_DefectDataInput\Defect300.cshtml" />
     <Content Include="Views\QC_DefectDataInput\Defect400.cshtml" />
     <Content Include="Views\QC_DefectDataInput\Defect500.cshtml" />
     <Content Include="Views\QC_DefectDataInput\Defect0.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect600.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect700.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect800.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect900.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect1000.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect1100.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect1200.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect1300.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect1400.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect1500.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect1600.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect1700.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect1800.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect1900.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect2000.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect2100.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\Defect2200.cshtml" />
+    <Content Include="Views\QC_DefectDataInput\TestGrid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

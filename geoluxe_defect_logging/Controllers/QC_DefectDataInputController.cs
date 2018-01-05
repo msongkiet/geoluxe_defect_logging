@@ -10,9 +10,13 @@ namespace geoluxe_defect_logging.Controllers
 {
     public class QC_DefectDataInputController : Controller
     {
+        //QC_SlabList SlabList;
+        DefectTableDTO DefectTable;
+
         // GET: Index
         public ActionResult Index()
         {
+            TempData["DefectTable"] = null;
             return View();
         }
 
@@ -29,14 +33,16 @@ namespace geoluxe_defect_logging.Controllers
         // GET: Slab Detail Partial View
         public ActionResult SlabDetailPartial(QC_SlabList models)
         {
-            models.SlabID = (UInt64)(TempData["SlabID"]);
-            models.OrderNo = 999999;
-            models.MatType = "";
-
-            if (models.SlabID.ToString().Length == 0)
+            if (TempData["SlabID"] == null)
             {
                 models.SlabID = 999999;
             }
+            else
+            {
+                models.SlabID = (UInt64)(TempData["SlabID"]);
+            }
+
+           models.OrderNo = 999999;
 
             if (models.SlabID.ToString().Length > 2)
             {
@@ -108,11 +114,64 @@ namespace geoluxe_defect_logging.Controllers
         }
 
         [HttpPost]
-        public ActionResult DefectListPartial()
+        public ActionResult DefectListPartial(FormCollection form)
         {
-            Console.WriteLine("STOP");
+            var SlabID = form["SlabID"];
+            var OrderNo = form["OrderNo"];
+            var MatType = form["MatType"];
+            var Width_1 = form["Width_1"];
+            var Width_2 = form["Width_2"];
+            var Length_1 = form["Length_1"];
+            var Length_2 = form["Length_2"];
+            var Thickness_1 = form["Thickness_1"];
+            var Thickness_2 = form["Thickness_2"];
+            var Thickness_3 = form["Thickness_3"];
+            var Thickness_4 = form["Thickness_4"];
+            var Thickness_5 = form["Thickness_5"];
+            var Thickness_6 = form["Thickness_6"];
+
+            var Location_X = form["Location_X"];
+            var Location_Y = form["Location_Y"];
+            var BasedID = form["BasedID"];
+            var CategoryID = form["CategoryID"];
+
+            var Remark = form["Remark"];
+            
+            QC_SlabDefectList defect = new QC_SlabDefectList();
+
+            if (TempData["DefectTable"]==null)
+            {
+                DefectTable = new DefectTableDTO();
+            }
+            else
+            {
+                DefectTable = (DefectTableDTO)TempData["DefectTable"];
+            }
+
+            defect.SlabID = Convert.ToUInt64(SlabID);
+
+            defect.GetDate = DateTime.Now.ToString("dd/MM/yyyy");
+            defect.GetTime = DateTime.Now.ToString("HH:mm");
+
+            defect.Location_X = float.Parse(Location_X);
+            defect.Location_Y = float.Parse(Location_Y);
+            defect.BasedID = int.Parse(BasedID);
+            defect.CategoryID = int.Parse(CategoryID);
+            defect.Remark = Remark;
+
+            DefectTable.QC_DefectListPreview.Add(defect);
+
+            TempData["DefectTable"] = DefectTable;
+
+            return PartialView("DefectListPartial", DefectTable);
+
+        }
+
+        public ActionResult TestGrid()
+        {
             return View();
         }
+
 
         // POST: Defect Detail Partial View
         //[HttpPost]
@@ -154,6 +213,91 @@ namespace geoluxe_defect_logging.Controllers
         }
 
         public ActionResult Defect500()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect600()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect700()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect800()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect900()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect1000()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect1100()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect1200()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect1300()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect1400()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect1500()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect1600()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect1700()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect1800()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect1900()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect2000()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect2100()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Defect2200()
         {
             return PartialView();
         }
