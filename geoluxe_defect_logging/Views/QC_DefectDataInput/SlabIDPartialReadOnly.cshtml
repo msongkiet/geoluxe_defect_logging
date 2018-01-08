@@ -2,11 +2,13 @@
 
 <form class="form-horizontal" id="SlabIDForm">
     <div class="container">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="form-group row">
-                @Html.LabelFor(m => m.SlabID, null, new { @class = "control-label col-md-3" })
-                <div class="col-md-9">
-                    @Html.TextBoxFor(m => m.SlabID, null, new { @class = "form-control col-md-3", @type = "text", @Required = "Required", @minlength = "10", @maxlength = "10", @readonly = "readonly" })
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.SlabID, null, new { @class = "control-label" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.SlabID, null, new { @class = "form-control col-md-3", @type = "text", @Required = "Required", @minlength = "10", @maxlength = "10", @readonly = "readonly" })
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,196 +1,214 @@
 ﻿@model geoluxe_defect_logging.Models.QC_SlabDefectList
 
 <form class="form-horizontal" id="DefectDetailForm">
-    <div class="col-md-12">
-
-        <div class="form-group row">
-            @Html.LabelFor(m => m.Location_X, null, new { @class = "control-label col-md-3" })
-            <div class="col-md-3">
-                @Html.TextBoxFor(m => m.Location_X, null, new { @class = "form-control", @Required = "Required", @type = "number", @min = "0", @max = "3200", @step = "0.1" })
-            </div>
-            @Html.LabelFor(m => m.Location_Y, null, new { @class = "control-label col-md-3" })
-            <div class="col-md-3">
-                @Html.TextBoxFor(m => m.Location_Y, null, new { @class = "form-control", @Required = "Required", @type = "number", @min = "0", @max = "1400", @step = "0.1" })
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label class="col-md-3 control-label">ประเภท Defect</label>
-            <div class="col-md-9">
-                <div class="dropup">
-                    <span>
-                        <select id="BasedID" onchange="SelectedDefectType(this);" name="BasedID" class="form-control">
-                            <option value=0>เลือกประเภท Defect</option>
-                            <option value=100>ขนาด</option>
-                            <option value=200>กะเทาะ</option>
-                            <option value=300>ร้าวหน้า</option>
-                            <option value=400>ร้าวข้าง</option>
-                            <option value=500>ร้าวขอบ</option>
-                            <option value=600>แยกชั้น</option>
-                            <option value=700>แตกมุม</option>
-                            <option value=800>บิ่นใต้ท้อง</option>
-                            <option value=900>บวม</option>
-                            <option value=1000>ขัดไม่หมด</option>
-                            <option value=1100>รอยหัวขัด</option>
-                            <option value=1200>จุดดำ</option>
-                            <option value=1300>Defect หลัง</option>
-                            <option value=1400>รอย Felt</option>
-                            <option value=1500>รอยซ่อม</option>
-                            <option value=1600>สีหยด</option>
-                            <option value=1700>ลายเบลอ</option>
-                            <option value=1800>ลายคด</option>
-                            <option value=1900>แถบสี</option>
-                            <option value=2000>ขนนก</option>
-                            <option value=2100>รอยต่อระหว่างชั้น</option>
-                            <option value=2200>ลายหยัก</option>
-                        </select>
-                    </span>
+    <div class="container">
+        <div class="col-md-8">
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Location_X, null, new { @class = "control-label" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(m => m.Location_X, null, new { @class = "form-control", @Required = "Required", @type = "number", @min = "0", @max = "3200", @step = "0.1" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Location_Y, null, new { @class = "control-label" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(m => m.Location_Y, null, new { @class = "form-control", @Required = "Required", @type = "number", @min = "0", @max = "3200", @step = "0.1" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label for="ddlDefect">Defect :</label>
+                            <div id="ddlDefect">
+                                <div class="dropdown col-md-12">
+                                    <span>
+                                        <select id="BasedID" onchange="SelectedDefectType(this);" name="BasedID" class="form-control">
+                                            <option value=0>เลือกประเภท Defect</option>
+                                            <option value=100>ขนาด</option>
+                                            <option value=200>กะเทาะ</option>
+                                            <option value=300>ร้าวหน้า</option>
+                                            <option value=400>ร้าวข้าง</option>
+                                            <option value=500>ร้าวขอบ</option>
+                                            <option value=600>แยกชั้น</option>
+                                            <option value=700>แตกมุม</option>
+                                            <option value=800>บิ่นใต้ท้อง</option>
+                                            <option value=900>บวม</option>
+                                            <option value=1000>ขัดไม่หมด</option>
+                                            <option value=1100>รอยหัวขัด</option>
+                                            <option value=1200>จุดดำ</option>
+                                            <option value=1300>Defect หลัง</option>
+                                            <option value=1400>รอย Felt</option>
+                                            <option value=1500>รอยซ่อม</option>
+                                            <option value=1600>สีหยด</option>
+                                            <option value=1700>ลายเบลอ</option>
+                                            <option value=1800>ลายคด</option>
+                                            <option value=1900>แถบสี</option>
+                                            <option value=2000>ขนนก</option>
+                                            <option value=2100>รอยต่อระหว่างชั้น</option>
+                                            <option value=2200>ลายหยัก</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6" style=" padding-top: 14px; padding-left: 60px;">
+                    <canvas id="myCanvas7,1" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,2" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,3" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,4" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,5" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,6" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,7" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,8" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,9" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,10" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,11" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,12" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,13" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,14" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,15" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas7,16" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <br />
+                    <canvas id="myCanvas6,1" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,2" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,3" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,4" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,5" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,6" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,7" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,8" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,9" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,10" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,11" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,12" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,13" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,14" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,15" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas6,16" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <br />
+                    <canvas id="myCanvas5,1" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,2" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,3" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,4" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,5" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,6" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,7" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,8" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,9" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,10" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,11" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,12" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,13" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,14" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,15" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas5,16" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <br />
+                    <canvas id="myCanvas4,1" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,2" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,3" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,4" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,5" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,6" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,7" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,8" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,9" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,10" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,11" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,12" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,13" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,14" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,15" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas4,16" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <br />
+                    <canvas id="myCanvas3,1" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,2" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,3" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,4" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,5" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,6" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,7" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,8" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,9" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,10" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,11" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,12" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,13" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,14" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,15" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas3,16" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <br />
+                    <canvas id="myCanvas2,1" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,2" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,3" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,4" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,5" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,6" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,7" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,8" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,9" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,10" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,11" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,12" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,13" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,14" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,15" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas2,16" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <br />
+                    <canvas id="myCanvas1,1" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,2" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,3" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,4" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,5" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,6" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,7" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,8" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,9" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,10" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,11" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,12" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,13" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,14" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,15" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
+                    <canvas id="myCanvas1,16" width="10" height="10" style="border:1px solid #d3d3d3;"></canvas>
                 </div>
             </div>
+
             @*<label class="col-md-2 control-label">สถานะ</label>
                 <div class="panel panel-default col-md-4">
                     <label class="radio-inline"><input type="radio" id="Reprocess" name="Reprocess" value=1> Reprocess ได้</label>
                     <br>
                     <label class="radio-inline"><input type="radio" id="Reprocess" name="Reprocess" value=0> Reprocess ไม่ได้</label>
                 </div>*@
-        </div>
-        <div class="form-group row">
-            <div class="panel panel-default col-md-12">
-                <div class="panel-heading">รายละเอียด</div>
-                <div id="DefectDetailRadioButton" name="DefectDetailRadioButton" class="panel-body" style="min-height:100px ;"></div>
-            </div>
-        </div>
 
-        <div class="form-group row">
-            <div class="col-md-6">
-                <label for="Remark">อื่นๆ:</label>
-                <textarea class="form-control" rows="3" id="Remark" name="Remark"></textarea>
-            </div>
-            <div class="col-md-6">
-                <canvas id="myCanvas7,1" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,2" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,3" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,4" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,5" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,6" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,7" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,8" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,9" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,10" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,11" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,12" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,13" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,14" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,15" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas7,16" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <br />
-                <canvas id="myCanvas6,1" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,2" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,3" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,4" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,5" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,6" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,7" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,8" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,9" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,10" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,11" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,12" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,13" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,14" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,15" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas6,16" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <br />
-                <canvas id="myCanvas5,1" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,2" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,3" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,4" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,5" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,6" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,7" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,8" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,9" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,10" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,11" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,12" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,13" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,14" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,15" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas5,16" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <br />
-                <canvas id="myCanvas4,1" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,2" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,3" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,4" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,5" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,6" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,7" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,8" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,9" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,10" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,11" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,12" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,13" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,14" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,15" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas4,16" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <br />
-                <canvas id="myCanvas3,1" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,2" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,3" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,4" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,5" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,6" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,7" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,8" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,9" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,10" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,11" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,12" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,13" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,14" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,15" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas3,16" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <br />
-                <canvas id="myCanvas2,1" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,2" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,3" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,4" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,5" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,6" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,7" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,8" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,9" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,10" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,11" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,12" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,13" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,14" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,15" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas2,16" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <br />
-                <canvas id="myCanvas1,1" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,2" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,3" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,4" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,5" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,6" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,7" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,8" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,9" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,10" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,11" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,12" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,13" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,14" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,15" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
-                <canvas id="myCanvas1,16" width="8" height="8" style="border:1px solid #d3d3d3;"></canvas>
+            <div class="form-group row">
+                <div class="col-md-12 panel-default">
+                    <label for="DefectDetailRadioButton">รายละเอียด :</label>
+                    <div id="DefectDetailRadioButton" name="DefectDetailRadioButton" class="panel-body" style="border-style:solid; border-radius: 5px; border-width:1px; border-color:lightgray; min-height:220px;"></div>
+                </div>
             </div>
 
-
-
+            <div class="form-group row">
+                <div class="col-md-8">
+                    <label for="Remark">อื่นๆ :</label>
+                    <div id="Remark">
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" id="Remark" name="Remark" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2" style="padding-top:25px">
+                    <button onclick="editData()" class="btn btn-default form-control">แก้ไขข้อมูล</button>
+                </div>
+                <div class="col-md-2" style="padding-top:25px">
+                    <button onclick="processData()" class="btn btn-primary form-control">เพิ่มข้อมูล</button>
+                </div>
+            </div>
         </div>
-
     </div>
 </form>
 

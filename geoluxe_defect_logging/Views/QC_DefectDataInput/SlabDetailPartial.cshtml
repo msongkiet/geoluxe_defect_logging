@@ -2,58 +2,90 @@
 
 <form class="form-horizontal" id="SlabInfoForm">
     <div class="container">
-        <div class="col-md-12">
-            <div class="form-group row"> 
-                @Html.LabelFor(m => m.OrderNo, null, new { @class = "control-label col-md-1" })
-                @Html.TextBoxFor(m => m.OrderNo, null, new { @class = "form-control col-md-11", @type = "text", @placeholder = "Auto-generated using slab id", @readonly = "readonly" })              
-            </div>
+        <div class="col-md-4">
             <div class="form-group row">
-                @Html.LabelFor(m => m.MatType, null, new { @class = "control-label col-md-1" })
-                @Html.TextBoxFor(m => m.MatType, null, new { @class = "form-control col-md-11", @type = "text", @placeholder = "Auto-generated using slab id", @readonly = "readonly" })
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.SlabID, null, new { @class = "control-label" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.SlabID, null, new { @class = "form-control col-md-3", @type = "text", @Required = "Required", @minlength = "10", @maxlength = "10", @readonly = "readonly" })
+                    </div>
+                </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-md-1 control-label">Shades</label>
-                <div class="col-md-11">
-                    <div class="dropdown">
-                        <span>
-                            <select id="Shades" name="Shades" class="form-control">
-                                <option value="">เฉดสี</option>
-                                <option value="J">J</option>
-                                <option value="K">K</option>
-                                <option value="L">L</option>
-                                <option value="M">M</option>
-                                <option value="N">N</option>
-                            </select>
-                        </span>
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.OrderNo, null, new { @class = "control-label" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.OrderNo, null, new { @class = "form-control", @type = "text", @placeholder = "AUTO GENERATED", @readonly = "readonly" })
                     </div>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="control-label col-md-1">ความกว้าง (mm)</label>
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.Width_1, null, new { @class = "form-control", @placeholder = "กว้าง1", @Required = "Required", @type = "number", @min = "0", @max = "1400", @step = "0.1" })
-                    @Html.TextBoxFor(m => m.Width_2, null, new { @class = "form-control", @placeholder = "กว้าง2", @Required = "Required", @type = "number", @min = "0", @max = "1400", @step = "0.1" })
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.MatType, null, new { @class = "control-label" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.MatType, null, new { @class = "form-control", @type = "text", @placeholder = "AUTO GENERATED", @readonly = "readonly" })
+                    </div>
                 </div>
-                <label class="col-md-2 control-label">ความยาว (mm)</label>
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.Length_1, null, new { @class = "form-control", @placeholder = "ยาว1", @Required = "Required", @type = "number", @min = "0", @max = "3200", @step = "0.1" })
-                    @Html.TextBoxFor(m => m.Length_2, null, new { @class = "form-control", @placeholder = "ยาว2", @Required = "Required", @type = "number", @min = "0", @max = "3200", @step = "0.1" })
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label for="ddlShades">Shades :</label>
+                    <div id="ddlShades">
+                        <div class="dropdown col-md-12">
+                            <span>
+                                <select id="Shades" name="Shades" class="form-control">
+                                    <option value="">เฉดสี</option>
+                                    <option value="J">J</option>
+                                    <option value="K">K</option>
+                                    <option value="L">L</option>
+                                    <option value="M">M</option>
+                                    <option value="N">N</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-md-3 control-label">ความหนา (mm)</label>
-                <div class="col-md-3">
-                    @Html.TextBoxFor(m => m.Thickness_1, null, new { @class = "form-control", @placeholder = "หนา1", @Required = "Required", @type = "number", @min = "0", @max = "25", @step = "0.1" })
-                    @Html.TextBoxFor(m => m.Thickness_2, null, new { @class = "form-control", @placeholder = "หนา2", @Required = "Required", @type = "number", @min = "0", @max = "25", @step = "0.1" })
+                <div class="col-md-6">
+                    <label for="Width">ความกว้าง (mm) :</label>
+                    <div id="Width">
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Width_1, null, new { @class = "form-control", @placeholder = "กว้าง #1", @Required = "Required", @type = "number", @min = "0", @max = "1400", @step = "0.1" })
+                            @Html.TextBoxFor(m => m.Width_2, null, new { @class = "form-control", @placeholder = "กว้าง #2", @Required = "Required", @type = "number", @min = "0", @max = "1400", @step = "0.1" })
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    @Html.TextBoxFor(m => m.Thickness_3, null, new { @class = "form-control", @placeholder = "หนา3", @Required = "Required", @type = "number", @min = "0", @max = "25", @step = "0.1" })
-                    @Html.TextBoxFor(m => m.Thickness_4, null, new { @class = "form-control", @placeholder = "หนา4", @Required = "Required", @type = "number", @min = "0", @max = "25", @step = "0.1" })
+                <div class="col-md-6">
+                    <label for="Length">ความยาว (mm) :</label>
+                    <div id="Length">
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Length_1, null, new { @class = "form-control", @placeholder = "ยาว #1", @Required = "Required", @type = "number", @min = "0", @max = "3200", @step = "0.1" })
+                            @Html.TextBoxFor(m => m.Length_2, null, new { @class = "form-control", @placeholder = "ยาว #2", @Required = "Required", @type = "number", @min = "0", @max = "3200", @step = "0.1" })
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    @Html.TextBoxFor(m => m.Thickness_5, null, new { @class = "form-control", @placeholder = "หนา5", @Required = "Required", @type = "number", @min = "0", @max = "25", @step = "0.1" })
-                    @Html.TextBoxFor(m => m.Thickness_6, null, new { @class = "form-control", @placeholder = "หนา6", @Required = "Required", @type = "number", @min = "0", @max = "25", @step = "0.1" })
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label for="Thickness">ความหนา (mm) :</label>
+                    <div id="Thickness">
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.Thickness_1, null, new { @class = "form-control", @placeholder = "หนา #1", @Required = "Required", @type = "number", @min = "0", @max = "25", @step = "0.1" })
+                            @Html.TextBoxFor(m => m.Thickness_2, null, new { @class = "form-control", @placeholder = "หนา #2", @Required = "Required", @type = "number", @min = "0", @max = "25", @step = "0.1" })
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.Thickness_3, null, new { @class = "form-control", @placeholder = "หนา #3", @Required = "Required", @type = "number", @min = "0", @max = "25", @step = "0.1" })
+                            @Html.TextBoxFor(m => m.Thickness_4, null, new { @class = "form-control", @placeholder = "หนา #4", @Required = "Required", @type = "number", @min = "0", @max = "25", @step = "0.1" })
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.Thickness_5, null, new { @class = "form-control", @placeholder = "หนา #5", @Required = "Required", @type = "number", @min = "0", @max = "25", @step = "0.1" })
+                            @Html.TextBoxFor(m => m.Thickness_6, null, new { @class = "form-control", @placeholder = "หนา #6", @Required = "Required", @type = "number", @min = "0", @max = "25", @step = "0.1" })
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

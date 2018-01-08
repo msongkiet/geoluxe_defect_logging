@@ -4,18 +4,19 @@
     @Html.AntiForgeryToken()
     <form class="form-horizontal">
         <div class="container">
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="form-group row">
-                    @Html.LabelFor(m => m.SlabID, null, new { @class = "control-label col-md-3", @style = "text-align:right;padding-top: 7px;" })
-                    <div class="col-md-9">
-                        @Html.TextBoxFor(m => m.SlabID, null, new { @class = "form-control col-md-3 ", @type = "text", @Required = "Required", @minlength = "10", @maxlength = "10" })
-                        <button type="submit" class="btn btn-default" name="submit">
-                            <span class="glyphicon glyphicon-play"></span>
-                        </button>
+                    <div class="col-md-12">
+                        @Html.LabelFor(m => m.SlabID, null, new { @class = "control-label", @style = "text-align:right;padding-top: 7px;" })
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.SlabID, null, new { @class = "form-control col-md-3 ", @type = "text", @Required = "Required", @minlength = "10", @maxlength = "10" })
+                            <button type="submit" class="btn btn-default" name="submit">
+                                <span class="glyphicon glyphicon-play"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-
 }

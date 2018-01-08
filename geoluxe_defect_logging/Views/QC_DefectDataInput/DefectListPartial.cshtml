@@ -1,7 +1,7 @@
 ﻿@model geoluxe_defect_logging.Models.DefectTableDTO
 
 <form class="form-horizontal" id="DefectInfoForm">
-    <div class="panel panel-default col-md-12">
+    <div class="panel panel-primary col-md-12">
         <div class="panel-heading">Defect List</div>
         <div class="panel-body" ;">
             <div class="col-md-10">
@@ -64,8 +64,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="panel panel-default col-md-2">
-
+            <div class="panel panel-primary col-md-2">
                 <div class="panel-body" ;">
                     <div class="row">
                         <div action="" class="">
@@ -81,6 +80,7 @@
                                 <input type="radio" id="Status" name="Status" value=3> Reprocess
                             </label>
                         </div>
+                        <button onclick="writeDB()" class="btn btn-primary form-control">บันทึกข้อมูล</button>
                     </div>
                 </div>
             </div>

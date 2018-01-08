@@ -135,6 +135,15 @@ namespace geoluxe_defect_logging.Controllers
             var BasedID = form["BasedID"];
             var CategoryID = form["CategoryID"];
 
+            if (form == null)
+            {                 
+                Console.Write("ERROR");
+            }
+            else
+            {
+                Console.Write("PASSED");
+            }
+
             var Remark = form["Remark"];
             
             QC_SlabDefectList defect = new QC_SlabDefectList();
@@ -164,7 +173,6 @@ namespace geoluxe_defect_logging.Controllers
             TempData["DefectTable"] = DefectTable;
 
             return PartialView("DefectListPartial", DefectTable);
-
         }
 
         public ActionResult TestGrid()
