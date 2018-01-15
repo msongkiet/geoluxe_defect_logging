@@ -197,6 +197,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QC_DefectDataInputController.cs" />
+    <Compile Include="Controllers\QC_ReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -323,6 +324,9 @@
     <Content Include="Views\QC_DefectDataInput\Defect2100.cshtml" />
     <Content Include="Views\QC_DefectDataInput\Defect2200.cshtml" />
     <Content Include="Views\QC_DefectDataInput\TestGrid.cshtml" />
+    <Content Include="Views\QC_Report\PM_O.cshtml" />
+    <Content Include="Views\QC_Report\Shift.cshtml" />
+    <Content Include="Views\QC_Report\Production.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

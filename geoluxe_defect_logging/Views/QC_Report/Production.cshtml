@@ -1,0 +1,97 @@
+﻿<div class="container" style="border:solid; border-width:1px">
+    @*<div class="form-group row">
+        <div class="col-md-12" style="text-align:right; float:right">
+            <label for="Date">Date:  </label>
+            @DateTime.Now.ToString("dd MMM yyyy")
+
+            <label for="Shift" style="padding-left:20px">Shift:  </label>
+            <input type="text" readonly="readonly" id="Shift" style="border:none; text-align:center; width:40px" value="XXX" />
+        </div>
+    </div>*@
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label style="text-decoration:underline">PRODUCTION SUMMARY REPORT (QC)</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div id="SlabIDSearch" class="col-md-12">
+            <label class="col-md-2">From Slab ID</label>
+            <input type="text" readonly="readonly" id="SlabID_1" style="border:none; text-align:right" value="AAAAAAAAAAAA" />
+            <label style="width:auto; text-align:center">to</label>
+            <input type="text" readonly="readonly" id="SlabID_2" style="border:none; text-align:left" value="BBBBBBBBBBBB" />
+        </div>
+        <div id="DateSearch" class="col-md-12">
+            <label class="col-md-2">From Date</label>
+            <input type="text" readonly="readonly" id="Date_1" style="border:none; text-align:right" value="AAAAAAAAAAAA" />
+            <label style="width:auto; text-align:center">to</label>
+            <input type="text" readonly="readonly" id="Date_2" style="border:none; text-align:left" value="BBBBBBBBBBBB" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label for="Summary" style="text-decoration:underline">SUMMARY</label>
+        </div>
+    </div>
+    <div class="form-group row">
+
+
+        <div id="table1" class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="text-align:center; vertical-align:middle" rowspan="2" scope="col">No</th>
+                        <th style="text-align:center; vertical-align:middle" rowspan="2" scope="col">Slab ID</th>
+                        <th style="text-align:center; vertical-align:middle" rowspan="2" scope="col">Grade</th>
+                        <th style="text-align:center; vertical-align:middle" rowspan="2" scope="col">Material Type</th>
+                        <th style="text-align:center; vertical-align:middle" colspan="2" scope="col">Defect</th>
+                        <th style="text-align:center; vertical-align:middle" colspan="2" scope="col">Location</th>
+                        <th style="text-align:center; vertical-align:middle" rowspan="2" scope="col">Date</th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center; vertical-align:middle" scope="col">Type</th>
+                        <th style="text-align:center; vertical-align:middle" scope="col">Class</th>
+                        <th style="text-align:center; vertical-align:middle" scope="col">X</th>
+                        <th style="text-align:center; vertical-align:middle" scope="col">Y</th>
+                    </tr>
+
+                </thead>
+                <tbody style="text-align:center; vertical-align:middle">
+                    <tr>
+                        <td>1</td>
+                        <td>XXXXXXXXXX</td>
+                        <td>PM(O)</td>
+                        <td>ERAMO</td>
+                        <td>200</td>
+                        <td>208</td>
+                        <td>1928</td>
+                        <td>502</td>
+                        <td>@DateTime.Now.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>XXXXXXXXXX</td>
+                        <td>PM(I)</td>
+                        <td>ERAMO</td>
+                        <td>200</td>
+                        <td>208</td>
+                        <td>1928</td>
+                        <td>502</td>
+                        <td>@DateTime.Now.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @*<div class="form-group row">
+            <div style="text-align:right">
+                <label for="CheckedBy">ผู้ตรวจสอบ : </label>
+                <input type="text" readonly="readonly" id="CheckedBy" style="border:none" value="......................." />
+                <label for="ReceivedBy">ผู้รับมอบ : </label>
+                <input type="text" readonly="readonly" id="ReceivedBy" style="border:none" value="......................." />
+            </div>
+        </div>*@
+</div>

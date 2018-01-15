@@ -12,10 +12,10 @@
 </div>
 
 @*<div class="form-group row">
-    <div class="col-md-12">
-        @Html.Partial("SlabIDPartialReadOnly")
-    </div>
-</div>*@
+        <div class="col-md-12">
+            @Html.Partial("SlabIDPartialReadOnly")
+        </div>
+    </div>*@
 
 <div class="form-group row">
     <div class="col-md-4" style="">
@@ -28,15 +28,15 @@
 </div>
 
 @*<div class="form-group row">
-    <div class="col-md-8">
-    </div>
-    <div class="col-md-2" style="align-items:stretch">
-        <button onclick="editData()" class="btn btn-default" style="align-content:center">แก้ไขข้อมูล</button>
-    </div>
-    <div class="col-md-2">
-        <button onclick="processData()" class="btn btn-primary" style="align-content:center">เพิ่มข้อมูล</button>
-    </div>
-</div>*@
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-2" style="align-items:stretch">
+            <button onclick="editData()" class="btn btn-default" style="align-content:center">แก้ไขข้อมูล</button>
+        </div>
+        <div class="col-md-2">
+            <button onclick="processData()" class="btn btn-primary" style="align-content:center">เพิ่มข้อมูล</button>
+        </div>
+    </div>*@
 
 
 <div class="row" id="DefectListPartial">
@@ -82,12 +82,78 @@
                 else {
                     Row = Math.trunc(Loc_Y / 200) + 1;
                 }
-                var Grid = "myCanvas" + Row + "," + Col;
 
+                //var area1 = 4.48 - ((Row * 0.2) * (Col * 0.2));
+                //var area2 = ((Row * 0.2) * (Col * 0.2));
+                //var area
+                //if (area1 >= area2) {
+                //    area = area1
+                //}
+                //else {
+                //    area = area2;
+                //}
+                //alert(Row + " " + Col + " " + area1 + " " + area2 + " " +area);
+
+
+                //var dist_left = Col;
+                //var dist_right = 16 - Col + 1;
+                //var dist_bottom = Row;
+                //var dist_top = 7 - Row + 1;
+                //var x = Math.min(dist_left, dist_right);
+                //var y = Math.min(dist_bottom, dist_top);
+                //var defect = x * y;
+                //alert( x + " " + y + " " + defect);
+
+                //if (y == dist_bottom && x == dist_left) {
+                //    for (var i = 1; i <= y; i++) {
+                //        for (var j = 1; j <= x; j++) {
+                //            Grid = "myCanvas" + i + "," + j;
+                //            var c = document.getElementById(Grid);
+                //            var ctx = c.getContext("2d");
+                //            ctx.fillStyle = "#FF0000";
+                //            ctx.fillRect(0, 0, 10, 10);
+                //        }
+                //    }
+                //}
+                //else if (y == dist_bottom && x == dist_right) {
+                //    for (var i = 1; i <= y; i++) {
+                //        for (var j = Col; j <= 16; j++) {
+                //            Grid = "myCanvas" + i + "," + j;
+                //            var c = document.getElementById(Grid);
+                //            var ctx = c.getContext("2d");
+                //            ctx.fillStyle = "#FF0000";
+                //            ctx.fillRect(0, 0, 10, 10);
+                //        }
+                //    }
+                //}
+                //else if (y == dist_top && x == dist_left) {
+                //    for (var i = Row; i <= 7; i++) {
+                //        for (var j = 1; j <= x; j++) {
+                //            Grid = "myCanvas" + i + "," + j;
+                //            var c = document.getElementById(Grid);
+                //            var ctx = c.getContext("2d");
+                //            ctx.fillStyle = "#FF0000";
+                //            ctx.fillRect(0, 0, 10, 10);
+                //        }
+                //    }
+                //}
+                //else {
+                //    for (var i = Row; i <= 7; i++) {
+                //        for (var j = Col; j <= 16; j++) {
+                //            Grid = "myCanvas" + i + "," + j;
+                //            var c = document.getElementById(Grid);
+                //            var ctx = c.getContext("2d");
+                //            ctx.fillStyle = "#FF0000";
+                //            ctx.fillRect(0, 0, 10, 10);
+                //        }
+                //    }
+                //}
+
+                var Grid = "myCanvas" + Row + "," + Col;
                 var c = document.getElementById(Grid);
                 var ctx = c.getContext("2d");
-                ctx.fillStyle = "#FF0000";
-                ctx.fillRect(0, 0, 12, 12);
+                ctx.fillStyle = "#b30000";
+                ctx.fillRect(0, 0, 10, 10);
 
                 //Clear TextBox
                 $("#Location_X").val('');

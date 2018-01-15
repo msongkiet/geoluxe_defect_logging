@@ -1,0 +1,283 @@
+﻿<div class="container" style="border:solid; border-width:1px">
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label for="ReportNo">Report No: </label>
+            <input type="text" readonly="readonly" id="ReportNo" style="border:none" value="1234567890" />
+        </div>
+        <div class="col-md-6" style="text-align:right; float:right">
+            <label for="Date">Date:  </label>
+            @DateTime.Now.ToString("dd MMM yyyy")
+
+            <label for="Shift" style="padding-left:20px">Shift:  </label>
+            <input type="text" readonly="readonly" id="Shift" style="border:none; text-align:center; width:40px" value="XXX" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label for="SlabDetails" style="text-decoration:underline">SLAB DETAILS</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-2">
+            <label for="SlabID">Slab ID : </label>
+        </div>
+        <div class="col-md-2">
+            <input type="text" readonly="readonly" id="SlabID" style="border:none" value="1234567890" />
+        </div>
+
+        <div class="col-md-2">
+            <label for="Status">Status : </label>
+        </div>
+        <div class="col-md-2">
+            <input type="text" readonly="readonly" id="Status" style="border:none" value="PM(O)" />
+        </div>
+
+        <div class="col-md-2">
+            <label for="Reprocessed">Reprocessed : </label>
+        </div>
+        <div class="col-md-2">
+            <input type="text" readonly="readonly" id="Reprocessed" style="border:none" value="YES" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-2">
+            <label for="MatType">Mat. Type : </label>
+        </div>
+        <div class="col-md-2">
+            <input type="text" readonly="readonly" id="MatType" style="border:none" value="ERAMO" />
+        </div>
+
+        <div class="col-md-2">
+            <label for="Shade">Shade : </label>
+        </div>
+        <div class="col-md-2">
+            <input type="text" readonly="readonly" id="Shade" style="border:none" value="J" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label for="Dimensions" style="text-decoration:underline">DIMENSIONS</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="row col-md-6">
+            <div class="row col-md-12">
+                <div class="col-md-4">
+                    <label for="Width">Width (mm)</label>
+                </div>
+                <div id="Width" class="col-md-8">
+                    <input type="text" readonly="readonly" id="Width_1" style="width:100px; text-align:center" value="1201" />
+                    <input type="text" readonly="readonly" id="Width_2" style="width:100px; text-align:center" value="1202" />
+                </div>
+            </div>
+
+            <div class="row col-md-12">
+                <div class="col-md-4">
+                    <label for="Length">Length (mm)</label>
+                </div>
+                <div id="Length" class="col-md-8">
+                    <input type="text" readonly="readonly" id="Length_1" style="width:100px; text-align:center" value="3401" />
+                    <input type="text" readonly="readonly" id="Length_2" style="width:100px; text-align:center" value="3402" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-md-6">
+            <div class="row col-md-12">
+                <div class="col-md-4">
+                    <label for="Thickness">Thickness (mm)</label>
+                </div>
+                <div id="Thickness" class="col-md-8">
+                    <input type="text" readonly="readonly" id="Thickness_1" style="width:100px; text-align:center" value="20.1" />
+                    <input type="text" readonly="readonly" id="Thickness_2" style="width:100px; text-align:center" value="20.2" />
+                    <input type="text" readonly="readonly" id="Thickness_3" style="width:100px; text-align:center" value="20.3" />
+                    <br />
+                    <input type="text" readonly="readonly" id="Thickness_4" style="width:100px; text-align:center" value="20.4" />
+                    <input type="text" readonly="readonly" id="Thickness_5" style="width:100px; text-align:center" value="20.5" />
+                    <input type="text" readonly="readonly" id="Thickness_6" style="width:100px; text-align:center" value="20.6" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label for="DefectLoc" style="text-decoration:underline">DEFECT LOCATION</label>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-1" style="padding-top:198px; padding-left:25px; width:40px">
+            <label style="transform:rotate(-90deg)">BARCODE</label>
+        </div>
+        <div class="col-md-5" style="border: solid;border-width: thin;width:auto ;height:auto">
+            <canvas id="myCanvas7,1" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,2" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,3" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,4" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,5" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,6" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,7" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,8" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,9" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,10" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,11" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,12" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,13" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,14" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,15" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas7,16" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <br />
+            <canvas id="myCanvas6,1" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,2" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,3" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,4" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,5" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,6" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,7" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,8" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,9" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,10" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,11" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,12" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,13" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,14" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,15" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas6,16" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <br />
+            <canvas id="myCanvas5,1" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,2" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,3" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,4" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,5" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,6" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,7" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,8" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,9" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,10" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,11" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,12" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,13" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,14" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,15" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas5,16" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <br />
+            <canvas id="myCanvas4,1" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,2" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,3" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,4" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,5" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,6" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,7" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,8" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,9" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,10" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,11" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,12" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,13" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,14" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,15" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas4,16" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <br />
+            <canvas id="myCanvas3,1" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,2" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,3" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,4" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,5" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,6" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,7" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,8" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,9" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,10" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,11" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,12" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,13" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,14" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,15" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas3,16" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <br />
+            <canvas id="myCanvas2,1" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,2" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,3" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,4" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,5" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,6" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,7" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,8" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,9" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,10" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,11" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,12" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,13" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,14" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,15" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas2,16" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <br />
+            <canvas id="myCanvas1,1" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,2" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,3" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,4" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,5" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,6" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,7" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,8" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,9" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,10" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,11" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,12" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,13" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,14" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,15" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas1,16" width="22" height="22" style="border:1px solid #d3d3d3;"></canvas>
+        </div>
+
+        <div id="table1" class="col-md-6" style="width:620px">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="text-align:center; vertical-align:middle" rowspan="2" scope="col">No</th>
+                        <th style="text-align:center; vertical-align:middle" rowspan="2" scope="col">Defect</th>
+                        <th style="text-align:center; vertical-align:middle" colspan="2" scope="col">Position</th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center; vertical-align:middle" scope="col">X</th>
+                        <th style="text-align:center; vertical-align:middle" scope="col">Y</th>
+                    </tr>
+
+                </thead>
+                <tbody style="text-align:center; vertical-align:middle">
+                    <tr>
+                        <td>1</td>
+                        <td>Chip</td>
+                        <td>2920</td>
+                        <td>1928</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Crack</td>
+                        <td>2610</td>
+                        <td>952</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+
+        <div style="text-align:right">
+            <label for="CheckedBy">ผู้ตรวจสอบ : </label>
+            <input type="text" readonly="readonly" id="CheckedBy" style="border:none" value="......................." />
+            <label for="ReceivedBy">ผู้รับมอบ : </label>
+            <input type="text" readonly="readonly" id="ReceivedBy" style="border:none" value="......................." />
+        </div>
+    </div>
+
+
+</div>
